@@ -1,0 +1,54 @@
+<html ng-app="myModule">
+	<head>
+		<style>
+			.test-div{
+				border: solid;
+				margin: 10px;
+			}
+		</style>
+		<script src="http://get.influxdb.org/influxdb-latest.js"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<script src="bower_components/jquery/jquery.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>	
+
+		<script src="test.js"></script>
+	</head>
+	<body ng-controller="myCtrl as myCtrl">
+
+		<div class="test-div"> <!-- READ -->
+			<h2>READ</h2>
+			Entity: <input type="text" ng-model="readEntity"/>
+			<br/>
+			<button type="button" ng-click="readSeries()">readSeries</button>
+			<h4>Output:</h4>
+			<div>{{readMessage}}</div>
+		</div>
+
+		<div class="test-div"> <!-- WRITE -->
+			<h2>WRITE</h2>
+			Entity: <input type="text" ng-model="writeEntity"/>
+			<br/>
+			Columns: <input type="text" ng-model="writeColumns"/> (Eg: key,value,dimension)
+			<br/>
+			Data: <input type="text" ng-model="writeData"/> (Eg: temperature,100,C)
+			<br/>
+			Message: {{writeMessage}}
+			<br/>
+			<button type="button" ng-click="writeSeries()">writeSeries</button>
+		</div>
+
+		<div class="test-div">  <!-- DROP -->
+			<h2>DROP</h2>
+			Entity: <input type="text" ng-model="dropEntity"/>
+			<br/>
+			Message: {{dropMessage}}
+			<br/>
+			<button type="button" ng-click="dropSeries()">dropSeries</button>
+		</div>
+
+	</body>
+</html>
